@@ -6,4 +6,19 @@
     <StartupObject>Betsson.EscapeMines.App.Program</StartupObject>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="gameSettings.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="gameSettings.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Betsson.EscapeMines.Model\Betsson.EscapeMines.Model.csproj" />
+    <ProjectReference Include="..\Betsson.EscapeMines.Service\Betsson.EscapeMines.Service.csproj" />
+  </ItemGroup>
+
 </Project>

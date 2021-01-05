@@ -1,12 +1,32 @@
-﻿using System;
+﻿using Betsson.EscapeMines.Service;
+using System;
+using System.IO;
 
 namespace Betsson.EscapeMines.App
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        const string fileName = "gameSettings.txt";
+        const string filePath = "./";
+
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                new Program().Run();
+            } 
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
+        }
+
+        public void Run()
+        {
+            var fileStream = new FileStream(filePath + fileName, FileMode.Open);
+            var fileService = new GameBuilder(fileStream, fileName);
+            fileService.LoadData();
         }
     }
 }
